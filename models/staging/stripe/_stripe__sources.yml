@@ -1,9 +1,10 @@
 version: 2
 
-# dbt will compile this to the full table name: raw.stripe.payments
 sources:
   - name: stripe
     database: raw
     schema*: stripe
     tables:
       - name: payments
+# dbt will compile this to the full table name: raw.stripe.payments
+
