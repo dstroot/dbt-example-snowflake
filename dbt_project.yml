@@ -34,4 +34,4 @@ models:
   jaffle_shop:
     # Applies to all files under models/staging/
     staging:
-      materialized: view
+      +materialized: view

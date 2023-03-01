@@ -1,14 +1,16 @@
 {% set payment_methods = ['credit_card', 'coupon', 'bank_transfer', 'gift_card'] %}
 
-with orders as (
+with 
 
-    select * from {{ ref('stg-jaffle_shop__orders') }}
+orders as (
+
+    select * from {{ ref('stg_jaffle_shop__orders') }}
 
 ),
 
 payments as (
 
-    select * from {{ ref('stg-stripe__payments') }}
+    select * from {{ ref('stg_stripe__payments') }}
 
 ),
 

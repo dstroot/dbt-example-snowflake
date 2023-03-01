@@ -33,7 +33,8 @@
 
 with source as (
 
-    select * from {{ source('stripe', 'payments') }}
+    -- select * from {{ source('stripe', 'payments') }}
+    select * from {{ ref('raw_payments') }}
 
 ),
 
