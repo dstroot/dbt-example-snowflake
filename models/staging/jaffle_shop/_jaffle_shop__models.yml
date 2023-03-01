@@ -18,7 +18,7 @@ models:
         tests:
           - unique
           - not_null
-      - name: status
+      - name: status of the order
         tests:
           - accepted_values:
               values:
