@@ -2,6 +2,8 @@ version: 2
 
 models:
   - name: stg_stripe__payments
+    description: This table contains staged payment data from stripe (our payment processor)
+
     columns:
       - name: payment_id
         tests:
