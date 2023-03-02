@@ -2,8 +2,7 @@ version: 2
 
 sources:
   - name: stripe
-    description: This source contains raw stripe payment data
-
+    # description: This source contains raw stripe payment data
     database: raw
     tables:
       - name: payments
