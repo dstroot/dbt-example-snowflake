@@ -20,7 +20,7 @@ models:
           - not_null
 
       - name: status
-        description: '{{ doc("orders_status") }}'
+        # description: '{{ doc("orders_status") }}'
         tests:
           - accepted_values:
               values:
