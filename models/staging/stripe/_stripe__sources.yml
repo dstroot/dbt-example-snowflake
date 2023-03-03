@@ -1,11 +1,40 @@
 version: 2
 
 sources:
+
   - name: stripe
     description: This source contains raw stripe payment data
-    
     database: raw
+
     tables:
+
       - name: payments
+        description: >
+          One record per payment.
+        
+        columns:
+
+          - name: id
+            description: Primary key of the payments table
+            tests:
+              - unique
+              - not_null
+
+          - name: order_id
+            description: Foreign key to orders table
+            tests:
+              - not_null
+
+          - name: paymentmethod
+            description: '{{ doc("stripe_payment_methods") }}'
+            tests:
+              - not_null
+              - accepted_values:
+                  values: ['stripe', 'paypal', 'credit_card', 'gift_card', 'cash']
+
+          - name: amount
+            description: The amount the payment
+            tests:
+              - not_null
 
 # dbt will compile this to the full table name: raw.stripe.payments

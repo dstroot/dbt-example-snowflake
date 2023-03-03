@@ -1,12 +1,41 @@
 version: 2
 
 sources:
+
   - name: jaffle_shop
-    description: This source contains raw customer and order data
-    
+    description: This source is a replica of the Postgres database used by our app
     database: raw
+    
     tables:
+
       - name: orders
+        description: >
+          One record per order. Includes cancelled and deleted orders.
+        columns:
+          - name: id
+            description: Primary key of the orders table
+            tests:
+              - unique
+              - not_null
+          - name: status
+            description: Note that the status can change over time
+
       - name: customers
+        description: >
+          Listing of all Jaffle Shop customers
+        columns:
+          - name: id
+            description: Primary key of the customers table
+            tests:
+              - unique
+              - not_null
+          - name: first_name
+            description: Customer first name - string/text
+            tests:
+              - not_null
+          - name: last_name
+            description: Customer last name - string/text
+            tests:
+              - not_null
 
 # dbt will compile this to the full table name: raw.jaffle_shop.orders, raw.jaffle_shop.customers
