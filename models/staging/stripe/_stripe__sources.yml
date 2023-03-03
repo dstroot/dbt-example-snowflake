@@ -11,6 +11,10 @@ sources:
       - name: payments
         description: >
           One record per payment.
+
+        tests:
+          - dbt_expectations.expect_table_row_count_to_equal:
+              value: 120
         
         columns:
 
