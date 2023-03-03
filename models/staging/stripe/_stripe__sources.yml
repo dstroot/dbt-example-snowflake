@@ -20,7 +20,7 @@ sources:
               - unique
               - not_null
 
-          - name: order_id
+          - name: orderid
             description: Foreign key to orders table
             tests:
               - not_null
@@ -30,7 +30,7 @@ sources:
             tests:
               - not_null
               - accepted_values:
-                  values: ['stripe', 'paypal', 'credit_card', 'gift_card', 'cash']
+                  values: ['credit_card', 'gift_card', 'coupon', 'bank_transfer']
 
           - name: amount
             description: The amount the payment
