@@ -35,3 +35,9 @@ models:
     # Applies to all files under models/staging/
     staging:
       +materialized: view
+    # Applies to all files under models/marts/
+    marts:
+      +materialized: view
+
+vars:
+  'dbt_date:time_zone': 'America/Los_Angeles'
