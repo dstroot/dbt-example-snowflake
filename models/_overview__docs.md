@@ -26,7 +26,7 @@ Once expanded, you'll be able to use the --select and --exclude model selection 
 
 Note that you can also right-click on models to interactively filter and explore the graph.
 
-<hr>
+<hr />
 
 # More information
 
