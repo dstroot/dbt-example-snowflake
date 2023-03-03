@@ -35,10 +35,6 @@ Read the [dbt viewpoint](https://docs.getdbt.com/docs/viewpoint)
 [Installation](https://docs.getdbt.com/docs/installation)
 [Join the dbt Community](https://www.getdbt.com/community/) for questions and discussion
 
-<hr>
-
-# Data Documentation for Jaffle Shop
-
 ### Models
 
 #### Naming Conventions
@@ -52,7 +48,7 @@ Read the [dbt viewpoint](https://docs.getdbt.com/docs/viewpoint)
 
 - Data flows from "raw" tables into the staging area. Subdirectories should be based on the **source** system. Our internal jaffle shop transactional database is one system, the data we get from Stripe's API is another. We've found this to be the best grouping for most companies, as source systems tend to share similar loading methods and properties between tables, and this allows us to operate on those similar sets easily.
 
-- Staging models are the only place we'll use the source macro, and our staging models should have a 1-to-1 relationship to our source tables. That means for each source system table we’ll have a single staging model referencing it, acting as its entry point — staging it — for use downstream. Staging models help us keep our code DRY. For instance, if we know we always want our monetary values as floats in dollars, but the source system is integers and cents, we want to do the division and type casting as early as possible so that we can reference it rather than redo it repeatedly downstream. Once a source has been defined, it can be referenced from a model using the {{ source()}} function.
+- Staging models are a key place we'll use the source macro, and our staging models should have a 1-to-1 relationship to our source tables. That means for each source system table we’ll have a single staging model referencing it, acting as its entry point — staging it — for use downstream. Staging models help us keep our code DRY. For instance, if we know we always want our monetary values as floats in dollars, but the source system is integers and cents, we want to do the division and type casting as early as possible so that we can reference it rather than redo it repeatedly downstream. Once a source has been defined, it can be referenced from a model using the "source" function. Pro tip: We can also use "sources" to apply data quality rules to tables already in our data warehouse.
 
 - The most standard types of staging model transformations are:
 
